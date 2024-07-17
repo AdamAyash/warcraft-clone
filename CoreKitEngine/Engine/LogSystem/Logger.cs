@@ -2,13 +2,13 @@
 {
     public class Logger : ILoggerService
     {
-        private static Logger m_LoggerInstance = null;
+        private static ILoggerService m_LoggerInstance = null;
 
         private Logger()
         {
         }
 
-        public static Logger GetLoggerInstance()
+        public static ILoggerService GetLoggerInstance()
         {
             if(m_LoggerInstance == null)
                 m_LoggerInstance = new Logger();
@@ -16,44 +16,9 @@
             return m_LoggerInstance;
         }
 
-        private void Log(string message, LogSeverity logSeverity)
+        public void Log(LogSeverity eLogSeverity, string strMessage)
         {
-            Console.WriteLine(FormatMessage(logSeverity, message));
-        }
-
-        public void LogInformation(string message)
-        {
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Log(message, LogSeverity.INFO);
-        }
-
-        public void LogAlert(string message)
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Log(message, LogSeverity.ALERT);
-        }
-
-        public void LogWarning(string message)
-        {
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Log(message, LogSeverity.WARNING);
-        }
-
-        public void LogError(string message)
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Log(message, LogSeverity.ERROR);
-        }
-
-        public void LogCritical(string message)
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Log(message, LogSeverity.CRITICAL);
-        }
-        public void LogDebug(string message)
-        {
-            Console.ForegroundColor = ConsoleColor.Magenta;
-            Log(message, LogSeverity.DEBUG);
+            Console.WriteLine(FormatMessage(eLogSeverity, strMessage));
         }
 
         private string FormatMessage(LogSeverity logSeverity, string message)

@@ -7,6 +7,5 @@
          WARNING,
          ERROR,
          CRITICAL,
-         DEBUG
     }
 }
