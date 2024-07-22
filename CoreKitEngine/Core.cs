@@ -1,4 +1,6 @@
-﻿namespace CoreKitEngine
+﻿global using System;
+
+namespace CoreKitEngine
 {
     internal class CoreKit
     {

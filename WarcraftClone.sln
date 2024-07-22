@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34902.65
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreKitEngine", "CoreKitEngine\CoreKitEngine.csproj", "{7FC7F537-6641-4D3D-B157-70E5EEA3D3BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreKitEngine", "CoreKitEngine\CoreKitEngine.csproj", "{7FC7F537-6641-4D3D-B157-70E5EEA3D3BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox", "Sandbox\Sandbox.csproj", "{518E523C-1F23-474B-A15C-285682B20EA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox", "Sandbox\Sandbox.csproj", "{518E523C-1F23-474B-A15C-285682B20EA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarcraftClone", "WarcraftClone\WarcraftClone.csproj", "{2EE78983-7BFE-4479-8792-EF6579010BB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WarcraftClone", "WarcraftClone\WarcraftClone.csproj", "{2EE78983-7BFE-4479-8792-EF6579010BB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreKitUnitTests", "CoreKitUnitTests\CoreKitUnitTests.csproj", "{0143E303-D4A4-4E05-8B65-958465CD5AD6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{2EE78983-7BFE-4479-8792-EF6579010BB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EE78983-7BFE-4479-8792-EF6579010BB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EE78983-7BFE-4479-8792-EF6579010BB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0143E303-D4A4-4E05-8B65-958465CD5AD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0143E303-D4A4-4E05-8B65-958465CD5AD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0143E303-D4A4-4E05-8B65-958465CD5AD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0143E303-D4A4-4E05-8B65-958465CD5AD6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
