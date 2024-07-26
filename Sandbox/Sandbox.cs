@@ -19,7 +19,7 @@ namespace Sandbox
         {
             _graphics = new GraphicsDeviceManager(this);
             m_currentGameState = new MockupGameState();
-            m_oEventManager = new EventManager();
+            m_oEventManager = EventManager.GetEventManagerInstance();
 
             Content.RootDirectory = "Content";
             IsMouseVisible = true;

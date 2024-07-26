@@ -13,26 +13,25 @@
 
     public class MockupGameState : BaseGameState
     {
-        MockupGameObject testGameObject = new MockupGameObject();
         SelectionBox selectionBox;
+        Unit unit = new Unit();
 
-        public bool MockupCallback(KeyDownEvent mockupEvent)
+        public void MockupCallback(KeyDownEvent mockupEvent)
         {
-            return true;
         }
 
-        public bool MockupCallback1(LeftMouseButtonPressedEvent mockupEvent)
+        public void MockupCallback1(LeftMouseButtonPressedEvent mockupEvent)
         {
-            selectionBox.SetCoordinates(mockupEvent.MousePosition);
+            selectionBox.UpdateSelectionBoxEndPoint(mockupEvent.MousePosition);
 
-            return true;
+            unit.isMoving = true;
+            unit.NewPosition = mockupEvent.MousePosition.ConvertToVector2();
+
         }
 
-        public bool MockupCallback2(LeftMouseButtonReleasedEvent mockupEvent)
+        public void MockupCallback2(LeftMouseButtonReleasedEvent mockupEvent)
         {
-            selectionBox.IsActivated = false;
-
-            return true;
+            selectionBox.Reset();
         }
 
         public override void LoadContent()
@@ -51,12 +50,13 @@
             RegisterEventHandler(EventTypeRegister.LeftMouseButtonPressedEvent, smartEventHandler1);
             RegisterEventHandler(EventTypeRegister.LeftMouseButtonReleasedEvent, smartEventHandler2);
 
-            testGameObject.Texture = LoadTexture2D("test");
-            // RegisterGameObject(testGameObject);
             selectionBox = new SelectionBox();
             selectionBox.Texture = Utilities.GenerateTexture(GraphicsDevice, 2, 2, Color.LightGreen);
 
             RegisterGameObject(selectionBox);
+
+            unit.Texture = LoadTexture2D("test");
+            RegisterGameObject(unit);
         }
 
         protected override InputManager InitializeInputManager()

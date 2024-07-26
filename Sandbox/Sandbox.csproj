@@ -41,7 +41,7 @@
     <ProjectReference Include="..\CoreKitEngine\CoreKitEngine.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Sandbox\EventSystem\" />
+    <Folder Include="Sandbox\EventSystem\Events\" />
   </ItemGroup>
   <Target Name="RestoreDotnetTools" BeforeTargets="Restore">
     <Message Text="Restoring dotnet tools" Importance="High" />
