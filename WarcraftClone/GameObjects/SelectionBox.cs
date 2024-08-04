@@ -1,13 +1,14 @@
-﻿namespace Sandbox.GameObjects
+﻿namespace WarcraftClone.GameObjects
 {
+    using CoreKitEngine.Engine.ColliderSystem.Colliders;
     using CoreKitEngine.Engine.GameObjects;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
-    using CoreKitEngine.Engine.ColliderSystem.Colliders;
     using System;
 
     public class SelectionBox : GameObject
     {
+
         private readonly Point DEFAULT_SELECTION_BOX_POSITION;
 
         private Point m_oSelectionBoxStartPosition;
