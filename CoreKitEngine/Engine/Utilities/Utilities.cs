@@ -28,5 +28,10 @@ namespace CoreKitEngine.Engine.Utilities
 
             return oTexture2D;
         }
+
+        public static Vector2 ConvertToVector2(this Point oPoint)
+        {
+            return new Vector2(oPoint.X, oPoint.Y);
+        }
     }
 }

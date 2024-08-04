@@ -2,10 +2,10 @@
 {
     public interface ISmartEventHandler
     {
-        public void AddMethod<T>(Func<T, bool> callback)
+        public void AddMethod<T>(Action<T> callback)
             where T : Event;
 
-        public bool Invoke(Event oEvent);
+        public void Invoke(Event oEvent);
             
     }
 }

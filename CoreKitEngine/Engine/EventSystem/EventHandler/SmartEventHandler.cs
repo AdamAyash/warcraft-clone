@@ -3,17 +3,17 @@
     public class SmartEventHandler<EventType> : ISmartEventHandler
         where EventType : Event
     {
-        public Func<EventType, bool> OnSmartEvent { get; private set; }
+        public Action<EventType> OnSmartEvent { get; private set; }
 
-        public void AddMethod<T>(Func<T, bool> callback) 
+        public void AddMethod<T>(Action<T> callback) 
             where T : Event
         {
-            OnSmartEvent += (Func<EventType, bool>)callback;
+            OnSmartEvent += (Action<EventType>)callback;
         }
 
-        public bool Invoke(Event oEvent)
+        public void Invoke(Event oEvent)
         {
-            return OnSmartEvent.Invoke((EventType)oEvent);
+            OnSmartEvent.Invoke((EventType)oEvent);
         }
     }
 }

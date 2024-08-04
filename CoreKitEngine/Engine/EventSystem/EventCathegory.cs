@@ -1,7 +1,7 @@
 ﻿namespace CoreKitEngine.Engine.EventSystem
 {
-    public enum  EventCathegory
+    public enum EventCathegory
     {
-
+        InputEvent,
     }
 }

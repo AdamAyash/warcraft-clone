@@ -1,20 +1,21 @@
 ﻿namespace CoreKitEngine.Engine.EventSystem
 {
-    using CoreKitEngine.Engine.Common.Messages;
+    using System;
     using CoreKitEngine.Engine.EventSystem.EventHandler;
     using CoreKitEngine.Engine.LogSystem;
-    using System;
     using System.Collections.Generic;
     using System.Diagnostics;
 
     public sealed class EventManager
     {
+        private static EventManager m_oEventManagerInstance = null;
+
         private ILoggerService m_oLoggerService;
 
         private Dictionary<EventTypeRegister, ISmartEventHandler> m_oEventHandlerMap;
         private Queue<Event> m_oEventQueue;
 
-        public EventManager()
+        private EventManager()
         {
             m_oEventHandlerMap = new Dictionary<EventTypeRegister, ISmartEventHandler>();
             m_oEventQueue = new Queue<Event>();
@@ -25,12 +26,21 @@
         {
         }
 
+        public static EventManager GetEventManagerInstance()
+        {
+            if(m_oEventManagerInstance == null)
+                m_oEventManagerInstance = new EventManager();
+
+            return m_oEventManagerInstance;
+        }
+
         public void DispatchEvents()
         {
             if (!(m_oEventQueue.Count > 0))
                 return;
 
             Event oEvent = m_oEventQueue.Dequeue();
+
             if (oEvent == null)
                 return;
 
@@ -46,11 +56,7 @@
                 m_oLoggerService.Log(LogSeverity.ERROR, exception.StackTrace);
             }
 
-            if (!(oEventHandler.Invoke(oEvent)))
-            {
-                m_oLoggerService.Log(LogSeverity.INFO, Messages.NULL_EVENT_POINTER_ENCOUNTERED, 
-                    new MessageKey("EVENT", oEventHandler.ToString()));
-            }
+            oEventHandler.Invoke(oEvent);
         }
 
         public void RegisterEvent(Event oEvent)
